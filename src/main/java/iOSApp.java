@@ -14,9 +14,12 @@ import org.testng.annotations.Test;
 
 public class iOSApp {
 
-    String userName = System.getenv("LT_USERNAME") == null ? "username" : System.getenv("LT_USERNAME"); //Add username here
-    String accessKey = System.getenv("LT_ACCESS_KEY") == null ? "accessKey" : System.getenv("LT_ACCESS_KEY"); //Add accessKey here
-    String app_id = System.getenv("LT_APP_ID") == null ? "lt://proverbial-ios" : System.getenv("LT_APP_ID");      //Enter your LambdaTest App ID at the place of lt://proverbial-android
+    String userName="belalahmad";
+    String accessKey="cousQqH3syuMR3H55LiQfG4QqCyPHRsZs3XJ3mbEle94hOdYLj";
+    String  app_id="lt://APP1016038711726753442259366";
+//    String userName = System.getenv("LT_USERNAME") == null ? "username" : System.getenv("LT_USERNAME"); //Add username here
+//    String accessKey = System.getenv("LT_ACCESS_KEY") == null ? "accessKey" : System.getenv("LT_ACCESS_KEY"); //Add accessKey here
+//    String app_id = System.getenv("LT_APP_ID") == null ? "lt://proverbial-ios" : System.getenv("LT_APP_ID");      //Enter your LambdaTest App ID at the place of lt://proverbial-android
     String grid_url = System.getenv("LT_GRID_URL") == null ? "mobile-hub.lambdatest.com" : System.getenv("LT_GRID_URL");
 
     AppiumDriver driver;
@@ -27,7 +30,7 @@ public class iOSApp {
 
         try {
             DesiredCapabilities capabilities = new DesiredCapabilities();
-            capabilities.setCapability("build", "Java TestNG");
+            capabilities.setCapability("build", "belal ios test");
             capabilities.setCapability("name", platform + " " + device + " " + version);
             capabilities.setCapability("deviceName", device);
             capabilities.setCapability("platformVersion", version);
@@ -45,41 +48,41 @@ public class iOSApp {
             WebDriverWait Wait = new WebDriverWait(driver, 30);
 
             //Changes the color of the text
-            Wait.until(ExpectedConditions.presenceOfElementLocated(MobileBy.AccessibilityId("color"))).click();
-            Thread.sleep(1000);
-
-            //Changes the text to "Proverbial"
-            Wait.until(ExpectedConditions.presenceOfElementLocated(MobileBy.AccessibilityId("Text"))).click();
-            Thread.sleep(1000);
-
-            //Toast will be visible
-            Wait.until(ExpectedConditions.presenceOfElementLocated(MobileBy.AccessibilityId("toast"))).click();
-            Thread.sleep(1000);
-
-            //Notification will be visible
-            Wait.until(ExpectedConditions.presenceOfElementLocated(MobileBy.AccessibilityId("notification"))).click();
-            Thread.sleep(4000);
-
-            //Opens the geolocation page
-            Wait.until(ExpectedConditions.presenceOfElementLocated(MobileBy.AccessibilityId("geoLocation"))).click();
-            Thread.sleep(4000);
-
-            //Takes back
-            driver.navigate().back();
-
-            //Takes to speedtest page
-            Wait.until(ExpectedConditions.presenceOfElementLocated(MobileBy.AccessibilityId("speedTest"))).click();
-            Thread.sleep(4000);
-            driver.navigate().back();
-
-            //Opens the browser
-            Wait.until(ExpectedConditions.presenceOfElementLocated(MobileBy.AccessibilityId("Browser"))).click();
-            Thread.sleep(1000);
-            MobileElement url = (MobileElement) driver.findElementByAccessibilityId("url");
-            url.click();
-            url.sendKeys("https://www.lambdatest.com");
-            Wait.until(ExpectedConditions.presenceOfElementLocated(MobileBy.AccessibilityId("find"))).click();
-            Thread.sleep(1000);
+//            Wait.until(ExpectedConditions.presenceOfElementLocated(MobileBy.AccessibilityId("color"))).click();
+//            Thread.sleep(1000);
+//
+//            //Changes the text to "Proverbial"
+//            Wait.until(ExpectedConditions.presenceOfElementLocated(MobileBy.AccessibilityId("Text"))).click();
+//            Thread.sleep(1000);
+//
+//            //Toast will be visible
+//            Wait.until(ExpectedConditions.presenceOfElementLocated(MobileBy.AccessibilityId("toast"))).click();
+//            Thread.sleep(1000);
+//
+//            //Notification will be visible
+//            Wait.until(ExpectedConditions.presenceOfElementLocated(MobileBy.AccessibilityId("notification"))).click();
+//            Thread.sleep(4000);
+//
+//            //Opens the geolocation page
+//            Wait.until(ExpectedConditions.presenceOfElementLocated(MobileBy.AccessibilityId("geoLocation"))).click();
+//            Thread.sleep(4000);
+//
+//            //Takes back
+//            driver.navigate().back();
+//
+//            //Takes to speedtest page
+//            Wait.until(ExpectedConditions.presenceOfElementLocated(MobileBy.AccessibilityId("speedTest"))).click();
+//            Thread.sleep(4000);
+//            driver.navigate().back();
+//
+//            //Opens the browser
+//            Wait.until(ExpectedConditions.presenceOfElementLocated(MobileBy.AccessibilityId("Browser"))).click();
+//            Thread.sleep(1000);
+//            MobileElement url = (MobileElement) driver.findElementByAccessibilityId("url");
+//            url.click();
+//            url.sendKeys("https://www.lambdatest.com");
+//            Wait.until(ExpectedConditions.presenceOfElementLocated(MobileBy.AccessibilityId("find"))).click();
+//            Thread.sleep(1000);
             driver.quit();
         } catch (Exception e) {
             e.printStackTrace();
