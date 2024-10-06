@@ -3,13 +3,12 @@
 <suite thread-count="100" name="Mobile" parallel="tests">
 
 
-    <test name="AndroidAppTest 1">
+    <test name="AndroidBelal">
         <parameter name="version" value="14"/>
         <parameter name="platform" value="android"/>
         <parameter name="device" value="Galaxy S23"/>
         <classes>
-<!--            <class name="And_Virtual"/>-->
-            <class name="GeoLocationTest"></class>
+            <class name="GeoLocationTest"/>
         </classes>
     </test>
 

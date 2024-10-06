@@ -36,7 +36,7 @@ public class ios_Virtual {
             capabilities.setCapability("platformName", platform);
             capabilities.setCapability("network", false);
             capabilities.setCapability("visual", true);
-            capabilities.setCapability("devicelog", true);
+//            capabilities.setCapability("devicelog", true);
             capabilities.setCapability("autoAcceptAlerts", true);
             //capabilities.setCapability("geoLocation", "HK");
 
@@ -44,26 +44,40 @@ public class ios_Virtual {
             driver = new AppiumDriver(new URL(hub), capabilities);
 
             // Navigate to the website where location popup needs to be handled
-            driver.get("https://belaletech.github.io/allow-location-permission/"); // Replace with your actual URL
+            driver.get("https://the-internet.herokuapp.com/geolocation"); // Replace with your actual URL
             Thread.sleep(2000); // Wait for 2 seconds after loading the page
 
-            // Fill out the form
-            MobileElement nameInput = (MobileElement) driver.findElement(By.xpath("//*[@id=\"name\"]")); // Replace with the correct element locator
-            nameInput.sendKeys("belal");
-            Thread.sleep(2000); // Wait for 2 seconds after entering name
-
-            MobileElement emailInput =(MobileElement) driver.findElement(By.xpath("//*[@id=\"email\"]")); // Replace with the correct element locator
-            emailInput.sendKeys("belal@gmail.com");
-            Thread.sleep(2000); // Wait for 2 seconds after entering email
-
-            MobileElement submitButton =(MobileElement) driver.findElement(By.xpath("//*[@id=\"locationForm\"]/button")); // Replace with the correct element locator
-            submitButton.click();
-            Thread.sleep(2000); // Wait for 2 seconds after clicking the button
-
+            driver.findElement(By.xpath("//*[@id=\"content\"]/div/button")).click();
+            Thread.sleep(5000);
             driver.context("NATIVE_APP");
-            driver.findElement(By.id("Allow While Using App")).click();
 
             Thread.sleep(2000);
+            driver.switchTo().alert().accept();
+            driver.findElement(By.name("Allow Once")).click();
+            Thread.sleep(5000);
+
+//            // Fill out the form
+//            MobileElement nameInput = (MobileElement) driver.findElement(By.xpath("//*[@id=\"name\"]")); // Replace with the correct element locator
+//            nameInput.sendKeys("belal");
+//            Thread.sleep(2000); // Wait for 2 seconds after entering name
+//
+//            MobileElement emailInput =(MobileElement) driver.findElement(By.xpath("//*[@id=\"email\"]")); // Replace with the correct element locator
+//            emailInput.sendKeys("belal@gmail.com");
+//            Thread.sleep(2000); // Wait for 2 seconds after entering email
+//
+//            MobileElement submitButton =(MobileElement) driver.findElement(By.xpath("//*[@id=\"locationForm\"]/button")); // Replace with the correct element locator
+//            submitButton.click();
+//            Thread.sleep(2000); // Wait for 2 seconds after clicking the button
+//
+//            driver.context("NATIVE_APP");
+//            driver.switchTo().alert().accept();
+//            driver.findElement(By.id("Allow While Using App")).click();
+//            driver.context("NATIVE_APP");
+//
+//            driver.switchTo().alert().accept();
+////            driver.context("NATIVE_APP");
+////            driver.context("NATIVE_APP");
+
             System.out.println("Form submitted successfully and popup handled.");
         } catch (Exception e) {
             e.printStackTrace();

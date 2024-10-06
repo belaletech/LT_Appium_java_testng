@@ -8,7 +8,8 @@
         <parameter name="platform" value="iOS"/>
         <parameter name="device" value="iPhone 15"/>
         <classes>
-            <class name="ios_Virtual"/>
+<!--            <class name="ios_Virtual"/>-->
+            <class name="GeoLocationForIos"></class>
         </classes>
     </test>
 </suite>

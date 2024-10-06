@@ -40,6 +40,7 @@ public class And_Virtual {
             capabilities.setCapability("devicelog", true);
             capabilities.setCapability("autoGrantPermissions", true);
 
+
             //capabilities.setCapability("geoLocation", "HK");
 
             String hub = "https://" + userName + ":" + accessKey + "@" + grid_url + "/wd/hub";
@@ -58,9 +59,19 @@ public class And_Virtual {
             emailInput.sendKeys("belal@gmail.com");
             Thread.sleep(2000); // Wait for 2 seconds after entering email
 
-            MobileElement submitButton =(MobileElement) driver.findElement(By.xpath("//*[@id=\"locationForm\"]/button")); // Replace with the correct element locator
-            submitButton.click();
+            driver.findElement(By.xpath("//*[@id=\"locationForm\"]/button")).click();
+//            MobileElement submitButton =(MobileElement) driver.findElement(By.xpath("//*[@id=\"locationForm\"]/button")); // Replace with the correct element locator
+//            submitButton.click();
+
+            driver.context("NATIVE_APP");
+            Thread.sleep(2000);
+
+            System.out.println(driver.findElement(MobileBy.xpath("//*[@class='android.widget.Button'][2]")).getText());
+
+            driver.findElement(MobileBy.xpath("//*[@class='android.widget.Button'][2]")).click();
+
             Thread.sleep(2000); // Wait for 2 seconds after clicking the button
+
 
 //            Alert savePopupAlert;
 //            savePopupAlert = driver.switchTo().alert();
@@ -70,7 +81,7 @@ public class And_Virtual {
 
 //            driver.context("NATIVE_APP");
 //            driver.findElement(By.xpath(".//android.widget.Button[@text='Allow']")).click();
-
+            driver.context("NATIVE").switchTo().alert().accept();
             driver.findElementById("com.android.packageinstaller:id/permission_allow_button").click();
 
 
